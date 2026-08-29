@@ -1,0 +1,33 @@
+##############################################################
+#      This computer system is for authorized users only.    #
+# All activity is logged and regularly checked by systems    #
+# personnel. Individuals using this system without authority #
+# or in excess of their authority are subject to having all  #
+# their services revoked. Any illegal services run by user   #
+# or attempts to take down this server or its services will  #
+# be reported to local law enforcement, and said user will   #
+# be punished to the full extent of the law. Anyone using    #
+# this system consents to these terms.                       #
+#                                             -COE HPC Admin #
+##############################################################
+============================================================
+device: cuda
+torch : 2.5.1+cu121
+CUDA  : 12.1
+GPU   : NVIDIA A100-SXM4-40GB
+VRAM  : 42.4 GB
+============================================================
+train: 60000  test: 10000
+parameters: 41,866
+forward shape: (4, 10)
+
+=== TRAINING (5 epochs, Adam lr=1e-3, seed 0) on cuda ===
+epoch 1/5  loss=0.1869  train_acc=94.46%  (5.0s)
+epoch 2/5  loss=0.0556  train_acc=98.31%  (2.6s)
+epoch 3/5  loss=0.0389  train_acc=98.81%  (2.5s)
+epoch 4/5  loss=0.0325  train_acc=98.97%  (2.5s)
+epoch 5/5  loss=0.0252  train_acc=99.21%  (2.5s)
+
+TEST accuracy: 98.73%  (9873/10000)
+grid saved: /home/cherry.pauline.magdaong/mnist_einsum_gpu/mnist_grid_gpu0.png
+DONE
