@@ -1,0 +1,26 @@
+=== GPU TRAINING LOG (executed notebook, A100) ===
+device: cuda
+GPU: NVIDIA A100-SXM4-40GB
+CUDA_VISIBLE_DEVICES = 0
+torch: 2.5.1+cu121
+train: 60000  test: 10000
+parameters: 41,866
+forward shape: (4, 10)
+
+OP CORRECTNESS CHECKS (vs PyTorch)
+  conv2d_valid matches F.conv2d      (max abs diff = 3.81e-06)
+  maxpool2x2 matches F.max_pool2d    (max abs diff = 0.00e+00)
+  linear & softmax OK
+  cross_entropy matches F.cross_entropy (diff = 1.19e-07)
+
+TRAINING (5 epochs, Adam lr=1e-3, batch 128, seed 0)
+epoch 1/5  loss=0.1918  train_acc=94.21%  (3.0s)
+epoch 2/5  loss=0.0576  train_acc=98.28%  (2.7s)
+epoch 3/5  loss=0.0430  train_acc=98.60%  (2.8s)
+epoch 4/5  loss=0.0338  train_acc=98.92%  (2.7s)
+epoch 5/5  loss=0.0286  train_acc=99.13%  (2.7s)
+
+TEST-SPLIT ACCURACY
+TEST accuracy: 98.86%  (9886/10000)
+
+Grid: 16 test samples saved -> mnist_grid_gpu.png

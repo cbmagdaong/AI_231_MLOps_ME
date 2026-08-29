@@ -1,0 +1,3 @@
+TEST accuracy: 98.86%  (9886/10000)
+device: cuda (NVIDIA A100-SXM4-40GB, cuda:0)
+torch 2.5.1+cu121

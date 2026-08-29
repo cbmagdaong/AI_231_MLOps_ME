@@ -27,12 +27,16 @@ input (N,1,28,28)
 | File | Description |
 |------|-------------|
 | `mnist_einsum_cnn.ipynb` | Executed notebook (CPU run) — all ops, correctness checks, 5-epoch training, test accuracy, 4×4 grid |
+| `mnist_einsum_cnn_GPU.ipynb` | **Executed notebook (GPU run, A100 `cuda:0`)** — same einops/einsum model, run on the HPC node; all 11 code cells have outputs (device banner, op checks, per-epoch log, test accuracy, embedded 4×4 grid) |
 | `mnist_grid.png` | 4×4 grid, 16 test samples, GT vs prediction (CPU run) |
-| `mnist_grid_gpu0.png` | 4×4 grid, 16 test samples, GT vs prediction (GPU run, A100) |
+| `mnist_grid_gpu.png` | 4×4 grid, 16 test samples, GT vs prediction (GPU notebook run, A100) |
+| `mnist_grid_gpu0.png` | 4×4 grid, 16 test samples, GT vs prediction (GPU script run, A100) |
 | `training_logs/training_log.txt` | Per-epoch CPU training log |
 | `training_logs/eval_test_accuracy.txt` | CPU test-split accuracy |
 | `training_logs/gpu_run_gpu0.log` | Full GPU run log (device banner + per-epoch + test accuracy) |
 | `training_logs/eval_test_accuracy_gpu.txt` | GPU test-split accuracy |
+| `training_logs/gpu_notebook_run.log` | Full GPU **notebook** run log (executed notebook, A100) |
+| `training_logs/eval_test_accuracy_gpu_nb.txt` | GPU notebook test-split accuracy (98.86%) |
 | `training_logs/op_correctness_checks.txt` | einops/einsum ops vs PyTorch reference |
 
 ## CPU vs GPU — comparison
@@ -96,3 +100,9 @@ CUDA_VISIBLE_DEVICES=0 python run_cnn_gpu0.py
 > downloader points at a dead mirror, so the GPU script reads the raw MNIST IDX
 > files directly with NumPy. The model and every einops/einsum operation are
 > unchanged.
+
+> **Executed GPU notebook:** `mnist_einsum_cnn_GPU.ipynb` was run end-to-end on
+> the A100 (pinned to `cuda:0`) via `nbclient`, so it is a genuine executed
+> artifact — all 11 code cells carry outputs. Its data cell reads the raw MNIST
+> IDX files directly (same workaround as the script). Test accuracy from the
+> notebook run: **98.86%** (9886/10000), ~2.7 s/epoch.
