@@ -1,0 +1,15 @@
+### conv2d_vs_F.conv2d (cell 5)
+conv2d_valid matches F.conv2d  (max abs diff = 1.91e-06)
+
+
+### maxpool_vs_F.max_pool2d (cell 7)
+maxpool2x2 matches F.max_pool2d  (max abs diff = 0.00e+00)
+
+
+### linear_vs_matmul (cell 9)
+linear & softmax OK
+
+
+### softmax_ce_vs_torch (cell 13)
+cross_entropy matches F.cross_entropy  (diff = 0.00e+00)
+

@@ -1,0 +1,10 @@
+epoch 1/5  loss=0.1899  train_acc=94.25%  (16.7s)
+
+epoch 2/5  loss=0.0582  train_acc=98.25%  (17.3s)
+
+epoch 3/5  loss=0.0434  train_acc=98.66%  (16.8s)
+
+epoch 4/5  loss=0.0343  train_acc=98.90%  (17.9s)
+
+epoch 5/5  loss=0.0281  train_acc=99.11%  (16.8s)
+
