@@ -26,11 +26,10 @@ input (N,1,28,28)
 
 | File | Description |
 |------|-------------|
-| `mnist_einsum_cnn.ipynb` | Executed notebook (CPU run) — all ops, correctness checks, 5-epoch training, test accuracy, 4×4 grid |
+| `mnist_einsum_cnn_CPU.ipynb` | Executed notebook (CPU run) — all ops, correctness checks, 5-epoch training, test accuracy, 4×4 grid |
 | `mnist_einsum_cnn_GPU.ipynb` | **Executed notebook (GPU run, A100 `cuda:0`)** — same einops/einsum model, run on the HPC node; all 11 code cells have outputs (device banner, op checks, per-epoch log, test accuracy, embedded 4×4 grid) |
 | `mnist_grid.png` | 4×4 grid, 16 test samples, GT vs prediction (CPU run) |
 | `mnist_grid_gpu.png` | 4×4 grid, 16 test samples, GT vs prediction (GPU notebook run, A100) |
-| `mnist_grid_gpu0.png` | 4×4 grid, 16 test samples, GT vs prediction (GPU script run, A100) |
 | `training_logs/training_log.txt` | Per-epoch CPU training log |
 | `training_logs/eval_test_accuracy.txt` | CPU test-split accuracy |
 | `training_logs/gpu_run_gpu0.log` | Full GPU run log (device banner + per-epoch + test accuracy) |
@@ -90,7 +89,7 @@ Same model, same hyper-parameters (Adam, lr=1e-3, batch 128, seed 0), 5 epochs,
 
 ```bash
 # CPU (any machine with torch + einops + torchvision)
-jupyter notebook mnist_einsum_cnn.ipynb
+jupyter notebook mnist_einsum_cnn_CPU.ipynb
 
 # GPU (on the HPC node, pinned to a free A100)
 CUDA_VISIBLE_DEVICES=0 python run_cnn_gpu0.py
